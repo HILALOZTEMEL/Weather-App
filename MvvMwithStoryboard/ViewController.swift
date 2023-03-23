@@ -6,9 +6,12 @@
 //
 
 import UIKit
+//Location : CoreLocation
+
+import CoreLocation
 
 
-class ViewController: UIViewController{
+class ViewController: UIViewController, CLLocationManagerDelegate{
 
     @IBOutlet weak var apiKey: UITextField!
     
@@ -19,7 +22,7 @@ class ViewController: UIViewController{
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        apiKey.text=""
+        apiKey.text = ""
     }
     
     func createAlert(title: String ,message: String){
@@ -27,22 +30,25 @@ class ViewController: UIViewController{
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+    
     @IBAction func enterApiButton(_ sender: Any) {
         if let apiKeyText = apiKey.text, !apiKeyText.isEmpty {
             // apiKeyText is not empty, continue with API call
+            apiKeyData = apiKey.text!
+            performSegue(withIdentifier: "firstSegue", sender: nil)
+            
         } else {
             // apiKeyText is empty, display an alert message
             createAlert(title: "Error" ,message: "API key cannot be empty.")
         }
         
-        apiKeyData = apiKey.text!
-        performSegue(withIdentifier: "firstSegue", sender: nil)
+        
     }
     
     //Segue'ye veri göndermek
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "firstSegue"{
-            let destinationVC = segue.destination as! SecondViewController
+            let destinationVC = segue.destination as! WeatherViewController
             destinationVC.apiKeyData = apiKeyData
         }
     }
