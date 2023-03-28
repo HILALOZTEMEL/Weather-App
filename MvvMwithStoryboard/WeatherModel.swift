@@ -1,51 +1,67 @@
 //
-//  WeatherModel.swift
-//  MvvMwithStoryboard
+//  model.swift
+//  KonumVerisiAlma
 //
-//  Created by Hilal Öztemel on 22.03.2023.
+//  Created by Hilal Öztemel on 23.03.2023.
 //
 
 import Foundation
 
+// MARK: - Weather
 struct WeatherData: Codable {
-    let main: Main
-    let weather: [WeatherInfo]
+    
+    let timezone: String
+    let current: Current
+    let daily: [Daily]
+
+    enum CodingKeys: String, CodingKey {
+        case timezone
+        case current, daily
+    }
+}
+
+// MARK: - Current
+struct Current: Codable {
+    
+    let temp: Double
+    let weather: [WeatherElement]
+
+    enum CodingKeys: String, CodingKey {
+        case temp
+        case weather
+    }
+}
+// MARK: - Daily
+struct Daily: Codable {
+    let dt: Int
+    let temp: Temp
+    let weather: [WeatherElement]
     
     enum CodingKeys: String, CodingKey {
-        case main
+        case dt
+        case temp
         case weather
     }
 }
 
-struct Main: Codable {
-    let temperature: Double
-    
-    enum CodingKeys: String, CodingKey {
-        case temperature = "temp"
-    }
-}
-
-struct WeatherInfo: Codable {
-    let description: String
+// MARK: - WeatherElement
+struct WeatherElement: Codable {
     let icon: String
     
-    enum CodingKeys: String, CodingKey {
-        case description
-        case icon = "icon"
-    }
 }
 
-struct Weather {
-    let temperature: Double
-    let description: String
-    let iconUrl: URL?
+
+// MARK: - Temp
+struct Temp: Codable {
+    let day, min, max, night: Double
+    let eve, morn: Double
 }
 
 enum APIError: Error {
     case invalidData
 }
 
-extension WeatherInfo {
+extension WeatherElement {
     var iconUrl: URL? {
         return URL(string: "https://openweathermap.org/img/w/\(icon).png")
     }

@@ -19,8 +19,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let gestuRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard) )
+        view.addGestureRecognizer(gestuRecognizer)
     }
+    @objc func closeKeyboard(){
+        view.endEditing(true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         apiKey.text = ""
     }

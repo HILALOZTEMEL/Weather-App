@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct WeatherViewModel {
+class WeatherViewModel{
     
-    func getWeather(apikey: String, completion: @escaping (Result<Weather, Error>) -> Void) {
-        let city = "istanbul"
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apikey)&units=metric")!
+    func getWeather(apikey: String,lat : Double,lon: Double, completion: @escaping (Result<WeatherData?, Error>) -> Void) {
+//        let city = "istanbul"
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&exclude=minutely,hourly&appid=\(apikey)&units=metric") else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(error.localizedDescription as! Error))
                 return
             }
             
@@ -27,18 +27,16 @@ struct WeatherViewModel {
             do {
                 let decoder = JSONDecoder()
                 let weatherData = try decoder.decode(WeatherData.self, from: data)
-                let weather = weatherData.weather.first
-                let temperature = weatherData.main.temperature
-                let description = weather?.description ?? ""
+                print(weatherData)
                 
-                let iconUrl = weather?.iconUrl
-                let weatherObject = Weather(temperature: temperature, description: description, iconUrl: iconUrl)
-                                completion(.success(weatherObject))
-                completion(.success(weatherObject))
+
+                completion(.success(weatherData))
             } catch {
                 completion(.failure(error))
             }
         }.resume()
     }
+    
+  
 }
 
