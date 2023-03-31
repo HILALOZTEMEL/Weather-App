@@ -7,10 +7,12 @@
 
 import UIKit
 
+
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var apiKey : String?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -47,6 +49,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+
+        
+            if let url = URLContexts.first?.url {
+                print(url)
+                let urlString = url.absoluteString
+                let component = urlString.components(separatedBy: "=")
+                if let extractedAPIKey = component.last {
+                    
+                    print("extractedAPIKey : ",extractedAPIKey)
+                    apiKey=extractedAPIKey
+                    NavigateToViewController()
+                }
+           }
+        
+
+    }
+
+    func NavigateToViewController(){
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        guard let targetVC = storyboard.instantiateViewController(withIdentifier: "WeatherViewController") as? WeatherViewController else{return}
+        let navVc = self.window?.rootViewController as? UINavigationController
+        targetVC.apiKeyData=apiKey!
+        print(targetVC.apiKeyData)
+        navVc?.pushViewController(targetVC, animated: true)
+        
+    }
 
 }
 

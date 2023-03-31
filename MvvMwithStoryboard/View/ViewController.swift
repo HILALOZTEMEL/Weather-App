@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//Location : CoreLocation
+
 
 import CoreLocation
 

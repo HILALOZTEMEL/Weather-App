@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 
 
-class WeatherViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource{
+class WeatherViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
 
     
     @IBOutlet weak var cityTextField: UILabel!
@@ -17,7 +17,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, UITabl
     @IBOutlet weak var iconImageView: UIImageView!
     
     
-    var apiKeyData = "-"
+    public var apiKeyData: String = "-"
     var locationManager = CLLocationManager()
     var latValue : Double = 0.0
     var lonValue : Double = 0.0
@@ -37,12 +37,21 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, UITabl
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        tableView.delegate = self
-        tableView.dataSource = self
         
+        print("controller : ",apiKeyData)
+   
+   
+           
+        tableView?.delegate = self
+        tableView?.dataSource = self
+        
+        
+      
         
         
     }
+       
+
    
     func formatDate(_ timestamp: Int) -> String {
         // Zamandan NSDate objesi çıkart
@@ -96,6 +105,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, UITabl
         print(locations[0].coordinate.longitude)
         self.latValue = locations[0].coordinate.latitude
         self.lonValue = locations[0].coordinate.longitude
+        
         getWeather()
     }
 
@@ -123,7 +133,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, UITabl
                                         task.resume()
                                     }
                     self.tableViewModel = WeatherTableViewModel(weatherList: weatherData!.daily )
-                    self.tableView.reloadData()
+                    self.tableView!.reloadData()
                     
                 case .failure(let error):
                     let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
