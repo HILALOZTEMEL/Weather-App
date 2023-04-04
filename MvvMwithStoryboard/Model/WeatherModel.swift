@@ -8,7 +8,11 @@
 import Foundation
 
 // MARK: - Weather
-struct WeatherData: Codable {
+struct WeatherData: Codable , Equatable {
+    static func == (lhs: WeatherData, rhs: WeatherData) -> Bool {
+        return true
+    }
+    
     
     let timezone: String
     let current: Current

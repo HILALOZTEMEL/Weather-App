@@ -22,7 +22,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, UITabl
     var latValue : Double = 0.0
     var lonValue : Double = 0.0
     private var tableViewModel : WeatherTableViewModel!
-    
+    private var formattedData = FormattedData()
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -50,22 +50,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, UITabl
         
         
     }
-       
-
-   
-    func formatDate(_ timestamp: Int) -> String {
-        // Zamandan NSDate objesi çıkart
-        let date = NSDate(timeIntervalSince1970: TimeInterval(timestamp))
-
-        // Tarihi istediğiniz formatta yazdırın
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "tr_TR")
-        formatter.dateFormat = "EEEE" // Örnek çıktı: "Perşembe, 29 Mart 2023"
-        let formattedDate = formatter.string(from: date as Date)
-
-        return formattedDate
-    }
-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewModel == nil ? 0 : self.tableViewModel.numberOfRowsInSection()
@@ -75,7 +59,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, UITabl
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WeatherCell
         let weatherViewModel = self.tableViewModel.weatherAtIndexPath(indexPath.row)
-        let formatedday = formatDate(weatherViewModel.day)
+        let formatedday = formattedData.formatDate(weatherViewModel.day)
         
         cell.DayLabel.text = String(formatedday)
         if let iconUrl = weatherViewModel.icon{
@@ -89,9 +73,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, UITabl
             }
             task.resume()
         }
-        
-        cell.Temp1Label.text = String(weatherViewModel.temp1) + "°C"
-        cell.Temp2Label.text = String(weatherViewModel.temp2) + "°C"
+        let formatTemp1 = formattedData.formatTemperature(weatherViewModel.temp1)
+        let formatTemp2 = formattedData.formatTemperature(weatherViewModel.temp2)
+        cell.Temp1Label.text = String(formatTemp1) + "C"
+        cell.Temp2Label.text = String(formatTemp2) + "C"
         return cell
         
         
@@ -119,7 +104,8 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, UITabl
                 case .success(let weatherData):
                     print(weatherData)
                     self.cityTextField.text = weatherData?.timezone
-                    self.temperatureLabel.text = "\(weatherData?.current.temp ?? 0)°C"
+                    let formatTemp = self.formattedData.formatTemperature(weatherData?.current.temp ?? 0)
+                    self.temperatureLabel.text = "\(formatTemp)C"
                     
                     if let iconUrl = weatherData?.current.weather[0].iconUrl {
                                         let task = URLSession.shared.dataTask(with: iconUrl) { data, response, error in
