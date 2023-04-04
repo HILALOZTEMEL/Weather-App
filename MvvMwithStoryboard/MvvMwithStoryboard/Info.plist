@@ -4,6 +4,7 @@
 <dict>
 	<key>CFBundleURLTypes</key>
 	<array>
+<<<<<<< HEAD:MvvMwithStoryboard/Info.plist
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
@@ -14,6 +15,9 @@
 				<string>vakifbankweather</string>
 			</array>
 		</dict>
+=======
+		<dict/>
+>>>>>>> a9a76522a9c006806532923a58b07c92d05c543c:MvvMwithStoryboard/MvvMwithStoryboard/Info.plist
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

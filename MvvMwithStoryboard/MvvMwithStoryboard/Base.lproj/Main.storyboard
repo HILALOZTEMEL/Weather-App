@@ -94,14 +94,22 @@
                                                     <rect key="frame" x="207" y="24" width="61" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+<<<<<<< HEAD:MvvMwithStoryboard/Base.lproj/Main.storyboard
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+=======
+                                                    <nil key="textColor"/>
+>>>>>>> a9a76522a9c006806532923a58b07c92d05c543c:MvvMwithStoryboard/MvvMwithStoryboard/Base.lproj/Main.storyboard
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSZ-Fm-7L0">
                                                     <rect key="frame" x="296" y="23" width="65" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+<<<<<<< HEAD:MvvMwithStoryboard/Base.lproj/Main.storyboard
                                                     <color key="textColor" systemColor="systemGray2Color"/>
+=======
+                                                    <nil key="textColor"/>
+>>>>>>> a9a76522a9c006806532923a58b07c92d05c543c:MvvMwithStoryboard/MvvMwithStoryboard/Base.lproj/Main.storyboard
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bid-9o-EZ1">

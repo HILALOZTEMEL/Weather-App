@@ -17,7 +17,10 @@
 		F7646EE629C9848500B31DE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7646EE529C9848500B31DE9 /* Assets.xcassets */; };
 		F7646EE929C9848500B31DE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7646EE729C9848500B31DE9 /* LaunchScreen.storyboard */; };
 		F7646EF929C98C6600B31DE9 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7646EF829C98C6600B31DE9 /* WeatherViewController.swift */; };
+<<<<<<< HEAD:MvvMwithStoryboard.xcodeproj/project.pbxproj
 		F767E42829DAEED100FC47D8 /* FormattedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F767E42729DAEED100FC47D8 /* FormattedData.swift */; };
+=======
+>>>>>>> a9a76522a9c006806532923a58b07c92d05c543c:MvvMwithStoryboard/MvvMwithStoryboard.xcodeproj/project.pbxproj
 		F7EDEA8E29D470F900EE324A /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EDEA8D29D470F900EE324A /* WeatherCell.swift */; };
 		F7EDEA9129D474C200EE324A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EDEA9029D474C200EE324A /* Service.swift */; };
 /* End PBXBuildFile section */
@@ -46,7 +49,10 @@
 		F7646EE829C9848500B31DE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7646EEA29C9848500B31DE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7646EF829C98C6600B31DE9 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD:MvvMwithStoryboard.xcodeproj/project.pbxproj
 		F767E42729DAEED100FC47D8 /* FormattedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedData.swift; sourceTree = "<group>"; };
+=======
+>>>>>>> a9a76522a9c006806532923a58b07c92d05c543c:MvvMwithStoryboard/MvvMwithStoryboard.xcodeproj/project.pbxproj
 		F7EDEA8D29D470F900EE324A /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		F7EDEA9029D474C200EE324A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,7 +104,10 @@
 		F7646EDB29C9848300B31DE9 /* MvvMwithStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD:MvvMwithStoryboard.xcodeproj/project.pbxproj
 				F767E42629DAEE6400FC47D8 /* Utils */,
+=======
+>>>>>>> a9a76522a9c006806532923a58b07c92d05c543c:MvvMwithStoryboard/MvvMwithStoryboard.xcodeproj/project.pbxproj
 				F7EDEA8F29D474AC00EE324A /* Service */,
 				F7EDEA8C29D464D000EE324A /* View */,
 				F7EDEA8B29D464BC00EE324A /* ViewModel */,
@@ -111,6 +120,7 @@
 			path = MvvMwithStoryboard;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD:MvvMwithStoryboard.xcodeproj/project.pbxproj
 		F767E42629DAEE6400FC47D8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +129,8 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> a9a76522a9c006806532923a58b07c92d05c543c:MvvMwithStoryboard/MvvMwithStoryboard.xcodeproj/project.pbxproj
 		F7EDEA8A29D464AC00EE324A /* Model */ = {
 			isa = PBXGroup;
 			children = (
